@@ -9,7 +9,7 @@ fun main() {
         ")",
         "(]}])",
         "([)]",
-        "{"
+        "{",
     )
 
     inputs.forEach { input ->
@@ -21,14 +21,14 @@ fun solveQuestion1(input: String): Boolean {
     val brackets = listOf("()", "[]", "{}")
     val validChars = listOf('(', ')', '[', ']', '{', '}')
 
-    when {
-        input.isEmpty() -> return false
-        input.isBlank() -> return false
-        input.length.mod(2) != 0 -> return false
-        input.any { it !in validChars } -> return false
-    }
-
     var inputTrim = input.trim()
+
+    when {
+        inputTrim.isEmpty() -> return false
+        inputTrim.isBlank() -> return false
+        inputTrim.length.mod(2) != 0 -> return false
+        inputTrim.any { it !in validChars } -> return false
+    }
 
     while (brackets.any { inputTrim.contains(it) }) {
         brackets.forEach {

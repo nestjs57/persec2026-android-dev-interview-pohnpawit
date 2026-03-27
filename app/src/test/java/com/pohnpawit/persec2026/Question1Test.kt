@@ -9,6 +9,7 @@ class Question1Test {
     @Test
     fun should_return_true_when_brackets_are_valid() {
         assertEquals(true, solveQuestion1("()"))
+        assertEquals(true, solveQuestion1("() "))
         assertEquals(true, solveQuestion1("([{}])"))
     }
 
