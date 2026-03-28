@@ -17,10 +17,13 @@ fun solveQuestion2(inputs: List<String>): List<String> {
             ?: throw IllegalArgumentException("invalid format: $input")
 
         val prefix = match.groupValues[1]
-        val number = match.groupValues[2]
+        val numberStr = match.groupValues[2]
         val suffix = match.groupValues[3]
 
-        Triple(prefix, number.toInt(), suffix)
+        val number =
+            numberStr.toLongOrNull() ?: throw IllegalArgumentException()
+
+        Triple(prefix, number, suffix)
     }.sortedWith(
         compareBy(
             { it.first },
