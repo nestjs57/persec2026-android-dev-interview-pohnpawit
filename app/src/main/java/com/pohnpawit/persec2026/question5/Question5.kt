@@ -14,7 +14,7 @@ fun solveQuestion5(input: Int): Int {
         .toList()
         .sortedDescending()
         .joinToString("")
-        .toLong()
+        .toInt()
 
     require(result <= Int.MAX_VALUE) { "result exceeds int range: $result" }
     return result.toInt()
